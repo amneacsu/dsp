@@ -1,0 +1,23 @@
+{
+  "name": "dsp",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amneacsu/dsp.git"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "Andrei Neacșu"
+  },
+  "scripts": {
+    "start": "electron main.js",
+    "package": "electron-packager . Mini --out=./dist --overwrite --platform=darwin --arch=x64 --version=1.0.1",
+    "package-win": "electron-packager . Mini --out=./dist --overwrite --platform=win32 --version=1.0.1"
+  },
+  "devDependencies": {
+    "electron": "^1.4.1",
+    "electron-packager": "^8.0.0"
+  }
+}
