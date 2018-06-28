@@ -1,4 +1,4 @@
-export default class Mic {
+export default class MicSource {
   constructor(context) {
     const node = context.createGain();
 

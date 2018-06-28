@@ -1,10 +1,9 @@
-import MicSource from './source/mic.js';
+import ElementSource from './source/ElementSource.js';
+import MicSource from './source/MicSource.js';
 
-import AudioSink from './sink/Audio.js';
-import BarVisualizerSink from './sink/BarVisualizer.js';
-import WaveVisualizerSink from './sink/WaveVisualizer.js';
-
-import ElementSource from './source/element.js';
+import AudioSink from './sink/AudioSink.js';
+import BarVisualizerSink from './sink/BarVisualizerSink.js';
+import WaveVisualizerSink from './sink/WaveVisualizerSink.js';
 
 const audioContext = new window.AudioContext();
 

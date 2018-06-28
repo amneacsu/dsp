@@ -1,6 +1,6 @@
 import Visualizer from './Visualizer.js';
 
-export default class WaveVisualizer extends Visualizer {
+export default class WaveVisualizerSink extends Visualizer {
   process(analyser, drawContext, width, height) {
     const b = analyser.frequencyBinCount;
     const fftSize = b * 2;
