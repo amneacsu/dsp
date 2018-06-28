@@ -55,4 +55,4 @@ BarVisualizerSink.prototype.tick = function() {
   });
 };
 
-module.exports = BarVisualizerSink;
+export default BarVisualizerSink;

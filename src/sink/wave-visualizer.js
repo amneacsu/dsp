@@ -58,4 +58,4 @@ WaveVisualizerSink.prototype.tick = function() {
   });
 };
 
-module.exports = WaveVisualizerSink;
+export default WaveVisualizerSink;

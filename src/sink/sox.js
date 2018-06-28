@@ -14,4 +14,4 @@ function SoxSink() {
   this.stdin = ps.stdin;
 };
 
-module.exports = SoxSink;
+export default SoxSink;

@@ -7,4 +7,4 @@ function LowPassFilter(context, cutoff) {
   return filter;
 };
 
-module.exports = LowPassFilter;
+export default LowPassFilter;
