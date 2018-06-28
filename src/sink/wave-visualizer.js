@@ -7,6 +7,9 @@ const drawContext = (width, height) => {
   const context = canvas.getContext('2d');
   context.lineWidth = 1;
   context.strokeStyle = '#3D3B1A';
+  context.fillStyle = '#3D3B1A';
+  context.font = '12px monospace';
+  context.textAlign = 'right';
 
   return context;
 }
@@ -15,9 +18,11 @@ function WaveVisualizerSink(context, {
   width = 400,
   height = 128,
   fftSize = 2048,
+  label = '',
 } = {}) {
   this.WIDTH = width;
   this.HEIGHT = height;
+  this.label = label;
 
   this.drawContext = drawContext(width, height);
   this.analyser = context.createAnalyser();
@@ -33,6 +38,8 @@ function WaveVisualizerSink(context, {
 WaveVisualizerSink.prototype.tick = function() {
   this.analyser.getByteTimeDomainData(this.data);
   this.drawContext.clearRect(0, 0, this.WIDTH, this.HEIGHT);
+  this.drawContext.fillText(this.label, this.WIDTH - 4, 11);
+
   this.drawContext.beginPath();
 
   let x = 0;
