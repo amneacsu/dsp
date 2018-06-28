@@ -6,7 +6,7 @@ const drawContext = (width, height) => {
 
   const context = canvas.getContext('2d');
   context.fillStyle = '#3D3B1A';
-  context.font = '12px monospace';
+  context.font = '10px monospace';
   context.textAlign = 'right';
 
   return context;
@@ -25,8 +25,8 @@ class BarVisualizerSink extends Node {
     super(context, opts);
 
     const {
-      width = 400,
-      height = 128,
+      width = 200,
+      height = 64,
       scale = 1,
       label = '',
     } = opts;

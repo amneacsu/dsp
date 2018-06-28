@@ -1,6 +1,7 @@
 body {
-  font-family: sans-serif;
   margin: 0;
+  font-family: monospace;
+  background-color: hsla(58, 29%, 45%, 1);
 }
 
 canvas {
@@ -8,6 +9,11 @@ canvas {
   margin: 5px;
   border: #3D3B1A 2px solid;
   border-radius: 2px;
-  background-color: #88864B;
+  /* background-color: #88864B; */
+  background-color: hsla(58, 29%, 40%, 1);
   box-shadow: 0 0 8px rgba(0, 0, 0, .4) inset;
+}
+
+audio {
+  appearance: none;
 }

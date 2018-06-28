@@ -10,11 +10,11 @@ import ElementSource from './source/element.js';
 const audioContext = new window.AudioContext();
 
 const vsink0 = new BarVisualizerSink(audioContext, {
-  label: 'File source',
+  label: 'file source',
 });
 
 const vsink1 = new WaveVisualizerSink(audioContext, {
-  label: 'File source',
+  label: 'file source',
 });
 
 const audioSink = new AudioSink(audioContext);
@@ -28,11 +28,11 @@ audioSource.connect(audioSink);
 
 // MicSource
 const micVis1 = new BarVisualizerSink(audioContext, {
-  label: 'Mic source',
+  label: 'mic source',
 });
 
 const micVis2 = new WaveVisualizerSink(audioContext, {
-  label: 'Mic source',
+  label: 'mic source',
 });
 
 const mic = new MicSource(audioContext);
@@ -48,7 +48,7 @@ const e = new ElementSource(audioContext, {
 });
 
 const vis21 = new BarVisualizerSink(audioContext, {
-  label: 'Audio element source',
+  label: 'audio element source',
 });
 
 e.connect(vis21);

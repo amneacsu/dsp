@@ -1,4 +1,4 @@
-class Mic {
+export default class Mic {
   constructor(context) {
     const node = context.createGain();
 
@@ -11,5 +11,3 @@ class Mic {
      return node;
   }
 }
-
-export default Mic;
