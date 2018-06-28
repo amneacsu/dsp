@@ -18,6 +18,7 @@ function WaveVisualizerSink(context, {
   width = 400,
   height = 128,
   fftSize = 2048,
+  // fftSize = 1024,
   label = '',
 } = {}) {
   this.WIDTH = width;
@@ -26,9 +27,13 @@ function WaveVisualizerSink(context, {
 
   this.drawContext = drawContext(width, height);
   this.analyser = context.createAnalyser();
+
+  // processor props
   this.analyser.fftSize = fftSize;
   this.sliceWidth = width / fftSize;
   this.data = new Uint8Array(fftSize);
+
+  console.log(this.analyser.frequencyBinCount);
 
   this.tick();
 

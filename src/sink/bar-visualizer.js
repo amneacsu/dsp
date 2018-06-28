@@ -38,6 +38,8 @@ class BarVisualizerSink extends Node {
 
     this.drawContext = drawContext(width, height);
     this.analyser = context.createAnalyser();
+
+    // processor props
     this.freqDomain = new Uint8Array(this.analyser.frequencyBinCount);
 
     this.tick();
