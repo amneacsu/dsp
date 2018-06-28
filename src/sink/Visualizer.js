@@ -17,8 +17,8 @@ const drawContext = (width, height) => {
 export default class Visualizer {
   constructor(context, params = {}) {
     const {
-      width = 200,
-      height = 64,
+      width = 400,
+      height = 128,
       fftSize = 2048,
       label = '',
     } = params;
