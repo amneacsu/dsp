@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "hs src -o"
+    "start": "hs -o"
   },
   "devDependencies": {
     "http-server": "^0.11.1"

@@ -2,7 +2,7 @@ const audioContext = new window.AudioContext();
 
 // File Source
 import ElementSource from './source/ElementSource.js';
-const audioSource = new ElementSource(audioContext, 'data/1.mp3');
+const audioSource = new ElementSource(audioContext, './data/1.mp3');
 
 const width = window.innerWidth - 40;
 
