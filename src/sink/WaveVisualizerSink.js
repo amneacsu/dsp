@@ -2,6 +2,8 @@ import Visualizer from './Visualizer.js';
 
 export default class WaveVisualizerSink extends Visualizer {
   process(analyser, drawContext, width, height) {
+    this.clear();
+
     const b = analyser.frequencyBinCount;
     const fftSize = b * 2;
 
@@ -29,5 +31,7 @@ export default class WaveVisualizerSink extends Visualizer {
 
     drawContext.lineTo(width, height / 2);
     drawContext.stroke();
+
+    return true;
   }
 }

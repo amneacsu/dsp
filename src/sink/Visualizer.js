@@ -43,17 +43,17 @@ export default class Visualizer {
   }
 
   tick() {
-    this.clear();
-
-    this.process(
+    const keep = this.process(
       this.analyser,
       this.drawContext,
       this.width,
       this.height,
     );
 
-    window.requestAnimationFrame(() => {
-      this.tick();
-    });
+    if (keep) {
+      window.requestAnimationFrame(() => {
+        this.tick();
+      });
+    }
   }
 }
