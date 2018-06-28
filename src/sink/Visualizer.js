@@ -17,7 +17,7 @@ const drawContext = (width, height) => {
 export default class Visualizer {
   constructor(context, params = {}) {
     const {
-      width = 400,
+      width = 1000,
       height = 128,
       fftSize = 2048,
       label = '',
@@ -35,6 +35,11 @@ export default class Visualizer {
     this.tick();
 
     return this.analyser;
+  }
+
+  offset(x, y) {
+    const imageData = this.drawContext.getImageData(x * -1, y, this.width + x, this.height - y);
+    this.drawContext.putImageData(imageData, 0, 0);
   }
 
   clear() {

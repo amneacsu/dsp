@@ -6,8 +6,7 @@ export default class LapseVisualizerSink extends Visualizer {
     const data = new Uint8Array(analyser.frequencyBinCount * 2);
     analyser.getByteTimeDomainData(data);
 
-    const imageData = drawContext.getImageData(1, 0, width - 1, height);
-    drawContext.putImageData(imageData, 0, 0);
+    this.offset(-1, 0);
 
     // const peak = data.reduce((a, b) => a > b ? a : b);
     const peak = data.reduce((a, b) => a + b) / data.length;
