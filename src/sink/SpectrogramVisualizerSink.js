@@ -2,29 +2,48 @@ import Visualizer from './Visualizer.js';
 
 let i = 0;
 
+const add = (a, b) => a + b;
+
 export default class SpectrogramVisualizerSink extends Visualizer {
   process(analyser, drawContext, width, height) {
-    this.offset(0, -1);
+    this.offset(-1, 0);
 
     const data = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteFrequencyData(data);
 
-    for (let x = 0; x < width; x++) {
-      // const index = ~~(this.width * (x / data.length));
-      const index = ~~(x * (data.length / width));
+    const imageData = drawContext.createImageData(1, height);
 
-      const p = data[index];
-      const l = p / 10;
 
-      i += 1;
-      if (i % 5000 === 0) {
-        // console.log(index);
-        // console.log(data.length / width);
-      }
+    const scale = data.length / height;
 
-      drawContext.fillStyle = `hsl(58, 29%, ${l}%)`;
-      drawContext.fillRect(x, 0, 1, 1);
+    for (let y = 0; y < height; y++) {
+      const start = Math.floor(y * scale);
+      const end = Math.ceil((y + 1) * scale);
+      const values = data.slice(start, end);
+
+      const percent = values.reduce(add) / values.length;
+
+      // i += 1;
+      // if (i % 5000 === 0) {
+      //   console.log(yy);
+      // }
+
+      const pp = percent;
+
+      const idx = (height - y) * 4;
+
+      imageData.data[idx + 0] = 0;
+      imageData.data[idx + 1] = 0;
+      imageData.data[idx + 2] = 0;
+      imageData.data[idx + 3] = pp;
+
+      // drawContext.fillStyle = `hsl(58, 29%, ${percent}%)`;
+      // drawContext.fillRect(x, 0, 1, 1);
     }
+
+    // console.log(imageData);
+
+    drawContext.putImageData(imageData, width - 1, 0);
 
     // return false;
     return true;
