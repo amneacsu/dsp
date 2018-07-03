@@ -8,16 +8,13 @@ export default class LapseVisualizerSink extends Visualizer {
 
     this.offset(-1, 0);
 
-    // const peak = data.reduce((a, b) => a > b ? a : b);
     const peak = data.reduce((a, b) => a + b) / data.length;
 
-    const v = peak - 128;
-
     const percent = (peak - 128) / 128;
-    const h = height * percent * 20;
-    const offset = (height - h) / 2;
+    const value = height * percent * 20;
+    const offset = (height - value) / 2;
 
-    drawContext.fillRect(width - 2, offset, 1, h);
+    drawContext.fillRect(width - 2, offset, 1, value);
 
     return true;
   }

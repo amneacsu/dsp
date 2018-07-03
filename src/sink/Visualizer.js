@@ -17,7 +17,7 @@ const drawContext = (width, height) => {
 export default class Visualizer {
   constructor(context, params = {}) {
     const {
-      width = 1000,
+      width = 512,
       height = 128,
       fftSize = 2048,
       label = '',
@@ -31,6 +31,7 @@ export default class Visualizer {
     this.drawContext = drawContext(width, height);
     this.analyser = context.createAnalyser();
     this.analyser.fftSize = fftSize;
+    this.analyser.smoothingTimeConstant = 0;
 
     this.tick();
 

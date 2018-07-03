@@ -23,29 +23,12 @@ export default class SpectrogramVisualizerSink extends Visualizer {
 
       const percent = values.reduce(add) / values.length;
 
-      // i += 1;
-      // if (i % 5000 === 0) {
-      //   console.log(yy);
-      // }
-
-      const pp = percent;
-
       const idx = (height - y) * 4;
-
-      imageData.data[idx + 0] = 0;
-      imageData.data[idx + 1] = 0;
-      imageData.data[idx + 2] = 0;
-      imageData.data[idx + 3] = pp;
-
-      // drawContext.fillStyle = `hsl(58, 29%, ${percent}%)`;
-      // drawContext.fillRect(x, 0, 1, 1);
+      imageData.data[idx + 3] = percent;
     }
 
-    // console.log(imageData);
+    drawContext.putImageData(imageData, width - 1, 0, 0, 0, width - 1, height);
 
-    drawContext.putImageData(imageData, width - 1, 0);
-
-    // return false;
     return true;
   }
 }
