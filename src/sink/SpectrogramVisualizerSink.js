@@ -4,6 +4,8 @@ let i = 0;
 
 const add = (a, b) => a + b;
 
+let max = 0;
+
 export default class SpectrogramVisualizerSink extends Visualizer {
   process(analyser, drawContext, width, height) {
     this.offset(-1, 0);
@@ -22,6 +24,11 @@ export default class SpectrogramVisualizerSink extends Visualizer {
       const values = data.slice(start, end);
 
       const percent = values.reduce(add) / values.length;
+
+      if (max < end) {
+        max = end;
+        console.log(max);
+      }
 
       const idx = (height - y) * 4;
       imageData.data[idx + 3] = percent;

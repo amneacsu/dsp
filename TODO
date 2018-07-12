@@ -2,3 +2,17 @@ LINT
 single RAF
 
 on screen visualiser settings control
+
+
+Draw area
+nodes
+  * x, y, w, h
+  * drag
+  * inputs
+  * outputs
+  * render
+  * register mouse events
+* edges
+ * split across node boundary
+ * prefer one axis over the other
+ * try to avoid other edges
