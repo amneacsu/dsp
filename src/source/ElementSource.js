@@ -11,7 +11,7 @@ export default class ElementSource {
     element.controls = true;
     element.loop = loop;
     element.src = src;
-    element.play();
+    // element.play();
 
     document.body.appendChild(element);
 
