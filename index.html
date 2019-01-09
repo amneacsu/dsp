@@ -9,6 +9,16 @@
   <script type="module">
     const audioContext = new window.AudioContext();
 
+    if (audioContext.state === 'suspended') {
+      const resumeAudioContext = () => {
+        audioContext.resume().then(() => {
+          document.removeEventListener('click', resumeAudioContext);
+        });
+      };
+
+      document.addEventListener('click', resumeAudioContext);
+    }
+
     import ElementSource from './src/source/ElementSource.js';
     import AudioSink from './src/sink/AudioSink.js';
     import BarVisualizerSink from './src/sink/BarVisualizerSink.js';
